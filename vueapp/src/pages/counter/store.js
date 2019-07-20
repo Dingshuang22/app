@@ -7,7 +7,8 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    count: 0
+    count: 0,
+    keyword:""
   },
   mutations: {
     increment: (state) => {
@@ -17,6 +18,9 @@ const store = new Vuex.Store({
     decrement: (state) => {
       const obj = state
       obj.count -= 1
+    },
+    getKeyword(state, keyword) {
+      state.keyword = keyword;
     }
   }
 })
