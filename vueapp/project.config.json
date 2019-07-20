@@ -11,7 +11,7 @@
 	},
 	"miniprogramRoot": "dist/wx/",
 	"compileType": "miniprogram",
-	"appid": "touristappid",
+	"appid": "wxc0acd50318f06e23",
 	"projectname": "vueapp",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
