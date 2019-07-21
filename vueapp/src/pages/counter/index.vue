@@ -1,9 +1,9 @@
 <template>
   <div class="word">
     <div class="box">
-        <h2 style="color:#fff;margin-left:10px" @click="goback">取消</h2>
+        <!-- <h2 style="color:#fff;margin-left:10px" @click="goback">取消</h2> -->
         <h2 class="sun">选择位置</h2>
-        <h2 style="color:#fff;margin-right:10px" @click="goIndex"><a href="../index/index.vue"></a>确认</h2>
+        <h2 style="color:#fff;margin-right:10px" @click="goIndex"><a href="../index/index.vue">确认</a></h2>
     </div>
     <div class="search">
       <input type="text" placeholder="搜索地点"  v-model="keyword">
@@ -89,11 +89,10 @@ export default {
         console.log(e)
       },
   methods: {
-    goback(){
-      history.go(-1)
-    },
     goIndex(){
-      this.$router.push({name:"index"})
+      mpvue.navigateTo({
+        url:"../index/main"
+      })
     }
 
       //   regionchange(e) {
