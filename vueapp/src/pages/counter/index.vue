@@ -1,9 +1,9 @@
 <template>
   <div class="word">
     <div class="box">
-        <h2 style="color:#fff;margin-left:10px">取消</h2>
+        <h2 style="color:#fff;margin-left:10px" @click="goback">取消</h2>
         <h2 class="sun">选择位置</h2>
-        <h2 style="color:#fff;margin-right:10px">确认</h2>
+        <h2 style="color:#fff;margin-right:10px" @click="goIndex"><a href="../index/index.vue"></a>确认</h2>
     </div>
     <div class="search">
       <input type="text" placeholder="搜索地点"  v-model="keyword">
@@ -16,7 +16,6 @@
 
 <script>
 // Use Vuex
-import List from "../../components/list.vue"
 import store from './store'
 import { mapState, mapActions } from "vuex"
 export default {
@@ -25,25 +24,25 @@ export default {
        latitude:"",
        longitude:"",
        flag:false,
-        markers: [{
-        iconPath: "../../static/tabs/1.png",
-          id: 1,
-        latitude:"",
-        longitude:"",
-        width: 50,
-        height: 50
-    }],
-        controls: [{
-      id: 1,
-      iconPath: '../../static/tabs/home.png',
-      position: {
-        left: 0,
-        top: 300 - 50,
-        width: 50,
-        height: 50
-      },
-      clickable: true
-    }]
+    //     markers: [{
+    //     iconPath: "../../static/tabs/1.png",
+    //       id: 1,
+    //     latitude:"",
+    //     longitude:"",
+    //     width: 50,
+    //     height: 50
+    // }],
+    //     controls: [{
+    //   id: 1,
+    //   iconPath: '../../static/tabs/home.png',
+    //   position: {
+    //     left: 0,
+    //     top: 300 - 50,
+    //     width: 50,
+    //     height: 50
+    //   },
+    //   clickable: true
+    // }]
      }
   },
   computed: {
@@ -58,9 +57,6 @@ export default {
         },
      
     },
-  components:{
-    List
-  },
   mounted(){     
   },
   watch:{
@@ -93,15 +89,22 @@ export default {
         console.log(e)
       },
   methods: {
-        regionchange(e) {
-          console.log(e.type)
-        },
-      markertap(e) {
-        console.log(e.markerId)
-      },
-      controltap(e) {
-        console.log(e)
-      }
+    goback(){
+      history.go(-1)
+    },
+    goIndex(){
+      this.$router.push({name:"index"})
+    }
+
+      //   regionchange(e) {
+      //     console.log(e.type)
+      //   },
+      // markertap(e) {
+      //   console.log(e.markerId)
+      // },
+      // controltap(e) {
+      //   console.log(e)
+      // }
   }
 }
 </script>
